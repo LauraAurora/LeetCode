@@ -1,11 +1,10 @@
-        
-        //If empty array? return false
-        //Can I assume negative numbers? Yes
-        //Can I assume that I'm only going to be workig with whole numbers? Yes
+//If empty array? return false
+//Can I assume negative numbers? Yes
+//Can I assume that I'm only going to be workig with whole numbers? Yes
 
-//HashSet (No duplicates of keys or values) Space: O(n)
+//HashSet       Time: O(n)                  Space: O(n)
 //Two for-loops Time: O(n^2)                Space: O(1)
-    //Arrays.sort Time: O(nlogn)
+//Arrays.sort   Time: O(nlogn)              Space: O(1)
 
 
 class Solution {
