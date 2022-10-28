@@ -7,8 +7,7 @@ class Solution:
         for i in range(len(nums)):
             if nums[i] in s:
                 return True
-            
-            if nums[i] not in s:
+            else:
                 s.add(nums[i])
         
         return False
