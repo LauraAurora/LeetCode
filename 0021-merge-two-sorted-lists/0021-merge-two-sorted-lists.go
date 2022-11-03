@@ -1,32 +1,39 @@
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
-class Solution:
-    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
+    
+    dummy := new(ListNode);
+    head := dummy;
+    
+    if(list1 == nil) {
+        return list2   
+    }
+    
+    if(list2 == nil) {
+        return list1
+    }
+    
+    for list1 != nil && list2 != nil {
+        if(list1.Val <= list2.Val) {
+            head.Next = list1
+            list1 = list1.Next
+        } else if(list1.Val >= list2.Val) {
+            head.Next = list2
+            list2 = list2.Next
+        }
+        head = head.Next
+    }
+    
+    if(list1 != nil) {
+        head.Next = list1
+    } else {
+        head.Next = list2
+    }
         
-        if not list1:
-            return list2
-        
-        if not list2:
-            return list1
-        
-        dummy = ListNode(0)
-        head = dummy
-        
-        while list1 != None and list2 != None:
-            if list1.val <= list2.val:
-                head.next = list1
-                list1 = list1.next
-            elif list1.val >= list2.val:
-                head.next = list2
-                list2 = list2.next 
-            head = head.next
-        
-        if list1 != None:
-            head.next = list1
-        if list2 != None:
-            head.next = list2
-        
-        return dummy.next
+    return dummy.Next
+}
